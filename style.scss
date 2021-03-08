@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 微軟正黑體;
+}
+
+#slider-box {
+    height: 100vh;
+    overflow: hidden;
+
+    .slider-item {
+        height: 100vh;
+        // 動畫名稱
+        animation-name: slider-item;
+        // 動畫持續時間
+        animation-duration: 1s;
+    }
+
+    @for $index from 1 through 3 {
+        .slider-item:nth-of-type(#{$index}) {
+            background-image: url(./img/item#{$index}.jpg);
+        }
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 72px;
+        padding: 150px 100px;
+        text-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+        // 簡寫：動畫名稱 持續時間 - 延遲時間
+        animation: slider-h1 1s 1s;
+        // 填滿模式：
+        // backwards 一開始顯示 0% 效果
+        // forwards 一開始顯示 100% 效果
+        animation-fill-mode: backwards;
+    }
+}
+
+// 定義動畫
+// @關鍵影格 動畫名稱
+@keyframes slider-item {
+    // 指定百分比
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slider-h1 {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
