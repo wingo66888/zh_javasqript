@@ -7,6 +7,7 @@
 #slider-box {
     height: 100vh;
     overflow: hidden;
+    position: relative;
 
     .slider-item {
         height: 100vh;
@@ -14,6 +15,11 @@
         animation-name: slider-item;
         // 動畫持續時間
         animation-duration: 1s;
+        display: none;
+    }
+
+    .slider-active {
+        display: block;
     }
 
     @for $index from 1 through 3 {
@@ -33,6 +39,55 @@
         // backwards 一開始顯示 0% 效果
         // forwards 一開始顯示 100% 效果
         animation-fill-mode: backwards;
+    }
+
+    #slider-prev, #slider-next {
+        width: 50px;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        transition: 0.6s;
+        z-index: 2;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    #slider-prev {
+        left: 0;
+    }
+
+    #slider-next {
+        right: 0;
+    }
+
+    #slider-dots {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        text-align: center;
+
+        .slider-dot {
+            z-index: 3;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            margin-right: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .slider-dot-active {
+            background: rgba(250, 250, 250, 0.8);
+        }
     }
 }
 
