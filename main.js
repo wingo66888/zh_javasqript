@@ -89,3 +89,10 @@ function resetTimer(){
     // 重新設定間隔
     timer = setInterval(autoPlay, interval);
 }
+
+var showdots = box.getAttribute("data-s-showdots");
+
+if (showdots == "false") {
+    var dots = document.getElementById("slider-dots");
+    dots.style["display"] = "none";
+}

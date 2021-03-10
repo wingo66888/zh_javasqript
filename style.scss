@@ -22,7 +22,7 @@
         display: block;
     }
 
-    @for $index from 1 through 3 {
+    @for $index from 1 through 10 {
         .slider-item:nth-of-type(#{$index}) {
             background-image: url(./img/item#{$index}.jpg);
         }
@@ -34,7 +34,7 @@
         padding: 150px 100px;
         text-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
         // 簡寫：動畫名稱 持續時間 - 延遲時間
-        animation: slider-h1 1s 1s;
+        animation: slider-h1 0.8s 0.2s;
         // 填滿模式：
         // backwards 一開始顯示 0% 效果
         // forwards 一開始顯示 100% 效果
